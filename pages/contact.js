@@ -102,7 +102,6 @@ function Contact(props) {
                 
             </VStack>     
         </Box>
-        <script type="text/javascript" src="/scripts/asciiArt.js">HELLO</script>
         </>
     )
 }

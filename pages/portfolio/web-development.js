@@ -31,7 +31,7 @@ function Portfolio(props) {
 
                 <Spacer />
                 <Grid height="100%" gridGap="20px" width="100%" gridTemplateColumns="repeat(auto-fit, minmax(250px, 1fr))">
-                {props.portfolioItem .length != 0 ? props.portfolioItem.map(item => <PortfolioItem item={item} color={brandColor}/>) : <Text>No projects here yet :), please check back later!</Text>}
+                {props.portfolioItem .length != 0 ? props.portfolioItem.map(item => <PortfolioItem key={item.id} item={item} color={brandColor}/>) : <Text>No projects here yet :), please check back later!</Text>}
                 
                 
                 </Grid>

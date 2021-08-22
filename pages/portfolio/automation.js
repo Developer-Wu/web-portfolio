@@ -10,16 +10,12 @@ import {
     useColorMode,
     HStack, List, VStack, Box, Circle, Spacer, Grid, Button, useColorModeValue
 } from "@chakra-ui/react"
-import { Nav } from "../../components/Nav"
-import { Divider } from "@chakra-ui/react"
-import { useState } from "react"
 import { PortfolioItem } from "../../components/PortfolioItem"
 import { date } from "../../components/Date"
 
 function Portfolio(props) {
     console.log(props.ipItem)
     console.log(props.portfolioItem)
-    const [buttonColor, toggleButtonColor] = useState(false)
     const brandColor = useColorModeValue("black", "brand.main")
 
 
@@ -33,7 +29,7 @@ function Portfolio(props) {
 
                 <Spacer />
                 <Grid height="100%" gridGap="20px" width="100%" gridTemplateColumns="repeat(auto-fit, minmax(250px, 1fr))">
-                    {props.portfolioItem.length != 0 ? props.portfolioItem.map(item => <PortfolioItem item={item} color={brandColor} />) : <Text>No projects here yet :), please check back later!</Text>}
+                    {props.portfolioItem.length != 0 ? props.portfolioItem.map(item => <PortfolioItem key={item.id} item={item} color={brandColor} />) : <Text>No projects here yet :), please check back later!</Text>}
 
                 </Grid>
                 <Spacer />
