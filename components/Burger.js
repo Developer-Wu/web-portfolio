@@ -1,31 +1,52 @@
 import { slide as Menu } from 'react-burger-menu'
-import {Link, Button} from "@chakra-ui/react"
+import {Button, Link} from "@chakra-ui/react"
+import { useRouter } from 'next/router'
+import ClientLink from "next/link"
 import {GiHamburgerMenu} from "react-icons/gi"
+import {useState} from "react"
 
-function Burger() {
+function Burger(props) {
+    const router = useRouter()
 
-    function openNav(e) {
-        e.preventDefault();
+    const [menuState, toggleMenuState] = useState(false)
+
+    var isMenuOpen = function(state) {
+        toggleMenuState(state.isOpen)
+        return state.isOpen;
+      };
+
+
+    function navAway(e, path) {
+        e.preventDefault()
+        toggleMenuState(!menuState)
+        router.push(path)
+        
+
+        return 
     }
+
 
     return (
         <>
-        <Menu customBurgerIcon={<GiHamburgerMenu/>} left >
-             <Link pl="10px" py="3px" className="menu-item" mb="20px" _hover={{
+        <Menu isOpen={menuState} onStateChange={isMenuOpen} customBurgerIcon={<GiHamburgerMenu/>} left >
+             <Link onClick={(e) => navAway(e, '/')} pl="10px" py="3px" className="menu-item" mb="20px" _hover={{
             backgroundColor:"brand.hover"
-        }} href="/">home</Link>
-        <Link pl="10px" py="3px" mb="20px" className="menu-item"  _hover={{
+        }}>home</Link>
+        <Link onClick={(e) => navAway(e, '/about')} pl="10px" py="3px" className="menu-item" mb="20px" _hover={{
             backgroundColor:"brand.hover"
-        }} href="/about">about</Link>
-        <Link pl="10px" py="3px" mb="20px" className="menu-item"   _hover={{
+        }}>about</Link>
+        <Link onClick={(e) => navAway(e, '/portfolio')} pl="10px" py="3px" className="menu-item" mb="20px" _hover={{
             backgroundColor:"brand.hover"
-        }} href="/portfolio">portfolio</Link>
-        <Link pl="10px" py="3px" mb="20px" className="menu-item" _hover={{
+        }}>portfolio</Link>
+        <Link onClick={(e) => navAway(e, '/contact')} pl="10px" py="3px" className="menu-item" mb="20px" _hover={{
             backgroundColor:"brand.hover"
         }}>contact</Link>
-        <Link pl="10px" py="3px" mb="20px" className="menu-item"  _hover={{
+                <Link onClick={(e) => navAway(e, '/testimonials')} pl="10px" py="3px" mb="20px" className="menu-item"  _hover={{
             backgroundColor:"brand.hover"
-        }} href="/terminal">terminal</Link>
+        }}>testimonials</Link>
+        <Link onClick={(e) => navAway(e, '/terminal')} pl="10px" py="3px" mb="20px" className="menu-item"  _hover={{
+            backgroundColor:"brand.hover"
+        }}>terminal</Link>
         </Menu>
         </>
     )

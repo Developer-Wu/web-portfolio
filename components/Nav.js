@@ -3,13 +3,34 @@ import {Button, Box, useColorMode, HStack, List, VStack, Link } from "@chakra-ui
 import {GiHamburgerMenu} from "react-icons/gi"
 import { useRef, useState } from "react"
 import Burger from "../components/Burger"
+import { useRouter } from 'next/router'
 
 
 
 function Nav(props) {
-    const navRef = useRef()
+
     const { colorMode, toggleColorMode } = useColorMode()
     const [mobileNav, openMobileNav] = useState(true)
+
+    const router = useRouter()
+
+    const [menuState, toggleMenuState] = useState(false)
+
+    var isMenuOpen = function(state) {
+        toggleMenuState(state.isOpen)
+        return state.isOpen;
+      };
+
+      console.log(menuState)
+    function navAway(e, path) {
+        e.preventDefault()
+        toggleMenuState(!menuState)
+        router.push(path)
+        
+
+        return 
+    }
+
 
 
 
@@ -20,15 +41,15 @@ function Nav(props) {
     return (
         <>
         
-        <HStack display={{base:"none", sm:"flex", md:"flex", lg:"flex"}} mr={{base:"100px",md:"100px",lg:"0px"}} top="20px" pos="fixed" align="center" justify="flex-end" spacing="20px" width="100%" maxWidth="1250px">
-        <Link href="/">home</Link>
-        <Link href="/about">about</Link>
-        <Link href="/portfolio">portfolio</Link>
-        <Link href="/contact">contact</Link>
-        <Link href="/terminal">terminal</Link>
+        <HStack display={{base:"none", sm:"flex", md:"flex", lg:"flex"}} mr={{base:"70px",md:"70px",lg:"0px"}} top="20px" pos="fixed" align="center" justify="flex-end" spacing="20px" width="100%" maxWidth="1250px">
+        <Link onClick={(e) => navAway(e, '/')}>home</Link>
+        <Link onClick={(e) => navAway(e, '/about')}>about</Link>
+        <Link onClick={(e) => navAway(e, '/portfolio')}>portfolio</Link>
+        <Link onClick={(e) => navAway(e, '/contact')}>contact</Link>
+                <Link onClick={(e) => navAway(e, '/testimonials')}>testimonials</Link>
+        <Link onClick={(e) => navAway(e, '/terminal')}>terminal</Link>
     <Button onClick={toggleColorMode}><FaMoon/></Button>
     </HStack>
-    
     <Box display={{base:"block", sm:"none", md:"none", lg:"none"}}>
     <Burger/>
     </Box>

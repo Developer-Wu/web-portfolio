@@ -4,18 +4,18 @@ import {date} from "../components/Date"
 
 function About(props) {
     return (
-        <Box display="flex" flexDir="column" justifyContent="flex-start" alignItems="flex-start" marginTop="60px" borderBottom="20px" overflowY="auto" width="98%" maxW="1250px" height="100%">
-        <VStack alignItems={{base:"center", sm:"center", md:"flex-start", lg:"flex-start"}}>
+        <Box px={{base:"10px", sm:"10px", md:"0px", lg:"0px"}} display="flex" flexDir="column" justifyContent="flex-start" alignItems="flex-start" marginTop="60px" borderBottom="20px" overflowY="auto" width="98%" maxW="1250px" height="100%">
+        <VStack alignItems="flex-start">
         <Text>Last login: {date} at public IP {props.ipItem.query} from {props.ipItem.country}</Text>
         <Spacer/>
         <Heading>About</Heading>
         <Spacer/>
-        <Flex flexDir={{base:"column", sm:"column", md:"row", lg:"row"}} spacing="25px" justifyContent="space-between" alignItems={{base:"center", sm:"center", md:"flex-start", lg:"flex-start"}}>
-        <Image pl={{base:"10px", sm:"10px", md:"0px", lg:"0px"}}  pr={{base:"10px", sm:"10px", md:"20px", lg:"20px"}} pb={{base:"20px", sm:"20px", md:"0", lg:"0"}} src="/images/dan.png" alt="profile-picture"/>
+        <Flex flexDir={{base:"column", sm:"row", md:"row", lg:"row"}} spacing="25px" justifyContent="space-between" alignItems="flex-start">
+        <Image pr={{base:"0", sm:"10px", md:"20px", lg:"20px"}} pb={{base:"20px", sm:"20px", md:"0", lg:"0"}} src="/images/dan.png" alt="profile-picture"/>
         <Spacer />
-        <VStack pb={{base:"20px", sm:"20px", md:"0px", lg:"0px"}} alignItems={{base:"center", sm:"center", md:"flex-start", lg:"flex-start"}}>
+        <VStack pb={{base:"20px", sm:"20px", md:"0px", lg:"0px"}} alignItems="flex-start">
         <Heading>Hey there!</Heading>
-        <Text paddingX={{base:"10px", sm:"10px", md:"0px", lg:"0px"}} textAlign={{base:"justify", sm:"justify", md:"left", lg:"left"}}>{props.about.map(item => item.description)}</Text>
+        <Text textAlign="left">{props.about.map(item => item.description)}</Text>
 
         </VStack>
         </Flex>

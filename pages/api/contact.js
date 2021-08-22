@@ -7,8 +7,8 @@ export default async function Contact(req, res) {
     port: 587,
     secure: false, // upgrade later with STARTTLS
     auth: {
-    user: "developerdanwu@gmail.com",
-    pass: "HMZVczIUC0Q2d1L3",
+    user: process.env.EMAIL_USERNAME,
+    pass: process.env.EMAIL_PASSWORD,
     }})
 
     const mailData = {

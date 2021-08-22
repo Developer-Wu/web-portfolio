@@ -14,10 +14,6 @@ function Help() {
         description:"clear the console"
     },{
         key:uuidv4(),
-        command:"sendmail(subject, body, yourEmail)",
-        description:"Send a message to me!"
-    },{
-        key:uuidv4(),
         command:"navTo('<name-of-page>')",
         description:"Go to a certain page. home - '/' , about - '/about', portfolio - '/portfolio', contact- '/contact'"
     },{

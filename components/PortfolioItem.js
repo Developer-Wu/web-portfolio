@@ -12,10 +12,10 @@ function PortfolioItem(props) {
         <Spacer/>
         <Text><Text as="span" fontWeight="black">Description:</Text> {props.item.description}</Text>
         <Spacer/>
-        <Button _hover={{backgroundColor:"brand.hover", color:"white", borderColor:"white"}} borderColor={props.color} borderWidth="2px" padding="5px">
-        <Spacer/>
+        {props.item.link ?  <Button _hover={{backgroundColor:"brand.hover", color:"white", borderColor:"brand.hover"}} borderColor={props.color} borderWidth="2px" padding="5px">
         <Link _hover={{textDecoration:"none"}} href={props.item.link} fontWeight="black" fontSize="sm">Click here to view!</Link>
-        </Button>
+        </Button>: <></>}
+
     </VStack>
             )
 

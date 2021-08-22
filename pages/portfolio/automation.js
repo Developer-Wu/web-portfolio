@@ -18,7 +18,7 @@ import { date } from "../../components/Date"
 
 function Portfolio(props) {
     console.log(props.ipItem)
-    console.log(props.automationItem)
+    console.log(props.portfolioItem)
     const [buttonColor, toggleButtonColor] = useState(false)
     const brandColor = useColorModeValue("black", "brand.main")
 

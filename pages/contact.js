@@ -9,156 +9,16 @@ import { Code,
     HStack, 
     Alert, AlertIcon, AlertTitle, AlertDescription, CloseButton,Text, VStack, Box, Button, FormControl, FormLabel, Input, FormHelperText, Textarea, Select} from "@chakra-ui/react"
 import AsciiMorph from "@kelleyvanevert/ascii-morph"
-    import {useEffect, useState} from "react"
     import {date} from "../components/Date"
+    import {RenderAscii} from "../components/Ascii"
+    import {useEffect, useState} from "react"
+import { GiBrandyBottle } from "react-icons/gi"
+
 
 function Contact(props) {
 
 
-    useEffect(() => {
-    var asciiElement = document.querySelector('pre');
-    console.log(asciiElement)
-    var art = new AsciiMorph(asciiElement, {x:0,y:0});
-
-    var asciis = [[
-        "                _ooOoo_",
-        "               o8888888o",
-        "               88\" . \"88",
-        "               (| -_- |)",
-        "               O\\  =  /O",
-        "            ____/`---'\\____",
-        "          .'  \\\\|     |//  `.",
-        "         /  \\\\|||  :  |||//  \\",
-        "        /  _||||| -:- |||||_  \\",
-        "        |   | \\\\\\  -  /'| |   |",
-        "        | \\_|  `\\`---'//  |_/ |",
-        "        \\  .-\\__ `-. -'__/-.  /",
-        "      ___`. .'  /--.--\\  `. .'___",
-        "   .\"\" '<  `.___\\_<|>_/___.' _> \\\"\".",
-        "  | | :  `- \\`. ;`. _/; .'/ /  .' ; |",
-        "  \\  \\ `-.   \\_\\_`. _.'_/_/  -' _.' /",
-        "===`-.`___`-.__\\ \\___  /__.-'_.'_.-'===",
-        "                `=--=-'    "
-        ],
-        
-        [
-        "                             /",
-        "                            /",
-        "                           /;",
-        "                          //",
-        "                         ;/",
-        "                       ,//",
-        "                   _,-' ;_,,",
-        "                _,'-_  ;|,'",
-        "            _,-'_,..--. |",
-        "    ___   .'-'_)'  ) _)\\|      ___",
-        "  ,'\"\"\"`'' _  )   ) _)  ''--'''_,-'",
-        "-={-o-  /|    )  _)  ) ; '_,--''",
-        "  \\ -' ,`.  ) .)  _)_,''|",
-        "   `.\"(   `------''     /",
-        "     `.\\             _,'",
-        "       `-.____....-\\\\",
-        "                 || \\\\",
-        "                 // ||",
-        "                //  ||",
-        "            _-.//_ _||_,",
-        "              ,'  ,-'/"
-        ],
-        
-        [
-        "      _nnnn_                      ",
-        "     dGGGGMMb     ,\"\"\"\"\"\"\"\"\"\"\"\"\"\".",
-        "    @p~qp~~qMb    | Linux Rules! |",
-        "    M|@||@) M|   _;..............'",
-        "    @,----.JM| -'",
-        "    JS^\__/  qKL",
-        "    dZP        qKRb",
-        "    dZP          qKKb",
-        "fZP            SMMb",
-        "HZM            MMMM",
-        "FqM            MMMM",
-        "__| \".        |\\dS\"qML",
-        "|    `.       | `' \Zq",
-        "_)      \.___.,|     .'",
-        "\____   )MMMMMM|   .'",
-        "    `-'       `--' hjm",
-        ],
-        
-        [
-        "              ,==;,",
-        "              )a,a\\g",
-        "              \\=_/8",
-        "              _| (_3,",
-        "          /(__/\\]\\",
-        "          (_,,__) \\",
-        "          //\  ;/  \\ ",
-        "          //  )__\   \|_",
-        "      _'/  |[]__L,  ,>}",
-        "      /t}  / ,   [| ",
-        "      6    /-.|=._|/",
-        "          /  .'`-/`",
-        "          ( .' | /",
-        "          \\ |  ( |",
-        "          \\_)  \_).",
-        "          \\ \\  \\ |",
-        "          \\ >  >|",
-        "      snd /.'  / /",
-        "              '-'",
-        ],
-        
-        [
-        "    ___,___,_______,____",
-        "    |  :::|///./||'||    \\",
-        "    |  :::|//.//|| || H)  |",
-        "    |  :::|/.///|!!!|     |",
-        "    |   _______________   |",
-        "    |  |:::::::::::::::|  |",
-        "    |  |_______________|  |",
-        "    |  |_______________|  |",
-        "    |  |_______________|  |",
-        "    |  |_______________|  |",
-        "    ||_|     boba      ||_|",
-        "    |__|_______________|__|"
-         ],
-         [
-        "   .__________________________.",
-        "   | .___________________. |==|",
-        "   | |     Apple ][      | |  |",
-        "   | |                   | |  |",
-        "   | |                   | |  |",
-        "   | |                   | |  |",
-        "   | |                   | |  |",
-        "   | |                   | |  |",
-        "   | | ]                 | | ,|",
-        "   | !___________________! |(c|",
-        "   !_______________________!__!",
-        "   |    ___ -=      ___ -= | ,|",
-        "   | ---[_]---   ---[_]--- |(c|",
-        "                               ", 
-        "    !_______________________!__!",
-        "   /                            \\",
-        "  /  [][][][][][][][][][][][][]  \\ ",
-        " /  [][][][][][][][][][][][][][]  \\ ",
-        "(  [][][][][____________][][][][]  )",
-        " \\ ------------------------------ / ",
-        "  \\______________________________/  "
-         ]];
-
-    art.render(asciis[5]);
-
-    var currentIndex = 2;
-
-    setTimeout(function() {
-        art.morph(asciis[1]);
-    }, 1000);
-
-    setInterval(function() {
-    art.morph(asciis[currentIndex]);
-    currentIndex++;
-    currentIndex%= asciis.length;
-    }, 3000);
-
-    })
+   
 
     const [fName, setfName] = useState('')
     const [lName, setlName] = useState('')
@@ -210,7 +70,7 @@ function Contact(props) {
             <Text>Last login: {date} at public IP {props.ipItem.query} from {props.ipItem.country}</Text>
             <Heading>contact me</Heading>
                 <Flex flexDir={{base:"column", sm:"column", md:"row", lg:"row"}} width="100%" alignItems={{base:"flex-start",sm:"flex-start",md:"center", lg:"center"}} minH="500px" justifyContent="space-between">
-                <FormControl justifyContent="space-between" minH="500px" display="flex" flexDir="column" isRequired width="100%" maxW={{base:"", sm:"", md:"500px", lg:"500px"}}>
+                <FormControl justifyContent="space-between" minH="550px" display="flex" flexDir="column" isRequired width="100%" maxW={{base:"", sm:"", md:"550px", lg:"550px"}}>
                 <FormLabel>First Name</FormLabel>
                     <Input value={fName} onChange={(e)=>{setfName(e.target.value)}} name="f_name" type="text"/>
                     <FormLabel>Last Name</FormLabel>
@@ -226,16 +86,16 @@ function Contact(props) {
                     </Select>
                     <FormLabel>Message</FormLabel>
                     <Textarea value={message} onChange={(e)=>setMessage(e.target.value)} name="message"/>
-                    <Button type="submit" onClick={handleFormSubmit}>SEND MAIL</Button>
-                </FormControl>
-                {submitted ? <Alert status="success">
+                    <Button _hover={{color:"#FFF", bgColor:"brand.hover", borderColor:"brand.hover"}} color="brand.main" border="2px" borderColor="brand.main" type="submit" onClick={handleFormSubmit}>SEND MAIL</Button>
+                    {submitted ? <Alert status="success" alignItems="center">
                 <AlertIcon />
                 <AlertTitle mr={2}>Message Sent!</AlertTitle>
                 <AlertDescription>I will attempt to reply as soon as possible!</AlertDescription>
-                <CloseButton onClick={() => setSubmitted(false)} position="absolute" right="8px" top="8px" />
+                <CloseButton alignSelf="flex-start" onClick={() => setSubmitted(false)}/>
                 </Alert>:<></> }
-
-                <Text minW="300px" display={{base:"none",sm:"none", md:"inline", lg:"inline"}} pt="20px" minH="500px" mr="5%" className="ascii-element" fontFamily="'Courier New', Courier, monospace;" as="pre"></Text>
+                </FormControl>
+                
+                <RenderAscii/>
 
                 </Flex>
                 

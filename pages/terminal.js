@@ -1,4 +1,4 @@
-import {Table, Thead, Tr, Td, Tbody, VStack, Box, Input} from "@chakra-ui/react"
+import {Table, Thead, Tr, Td, Tbody, VStack, Box, Input, Textarea} from "@chakra-ui/react"
 import {useState,useEffect, useRef} from "react"
 import {TerminalWelcome} from "../components/TerminalWelcome"
 import {Help} from "../components/HelpCommand"
@@ -140,15 +140,15 @@ function Terminal() {
     return (
 
         <Box display="flex" flexDir="column" justifyContent="flex-start" alignItems="flex-start"  marginTop="60px" borderBottom="20px" overflowY="auto" width="98%" maxW="1250px" height="100%">
-        <VStack alignItems="flex-start">
-        <Box>
+        <VStack alignItems="flex-start" width="100%">
+        <Box width="100%">
         <TerminalWelcome />
         {cmdOutput.map((item) => {
             return (
                 <div key={item.key}>{item.value}</div>
             )
         })}
-        <Input placeholder="Type a cmd here..." value={cmd} onKeyPress={onEnterPressed} onChange={onUserInput}></Input>
+        <Input placeholder="Type a cmd here..." value={cmd} onKeyPress={onEnterPressed} onChange={onUserInput} maxW="100%" ></Input>
         </Box>
         </VStack>
         </Box>
