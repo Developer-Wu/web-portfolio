@@ -13,7 +13,7 @@ function Testimonials(props) {
         <Heading>testmonials</Heading>
         <Spacer/>
         <Flex flexDir="column" justifyContent="space-between">
-            {props.testimonials.map(item => {return (<TestimonialItem client={item.client} link={item.link} content={item.content}/>)})}
+            {props.testimonials.map(item => {return (<TestimonialItem key={item.id} client={item.client} link={item.link} content={item.content}/>)})}
 
        
         </Flex>

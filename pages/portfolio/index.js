@@ -30,7 +30,7 @@ function Portfolio(props) {
                 <Heading>Portfolio</Heading>
                 <Text>This is my personal portfolio to showcase some of my best and most relevant development work. I work with a variety of projects as you can see below such as
                     Wordpress (elementor, crocoblocks), and can write confidently in a variety of markup/programming languages such as Javascript, Python etc. If you like what you
-                    see, hmu and let's chat about your next big project!
+                    see, hmu and let&apos;s chat about your next big project!
                 </Text>
                 <Spacer />
                 <UnorderedList display="flex" flexDir="column" justifyContent="space-between" height="120px" listStyleType="none" maxW="1250px" width="100%">
