@@ -22,6 +22,7 @@ export async function getStaticProps() {
       props: {
           ipItem,
       },
+      revalidate: 10, 
     }
   }
 

@@ -69,6 +69,7 @@ export async function getStaticProps() {
           portfolioItem,
           automationItem
       },
+      revalidate: 10, 
     }
   }
 

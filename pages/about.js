@@ -33,7 +33,8 @@ export async function getStaticProps() {
         props:{
             ipItem,
             about
-        }
+        },
+        revalidate: 10, 
     }
 }
 
