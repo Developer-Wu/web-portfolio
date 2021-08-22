@@ -25,7 +25,7 @@ function About(props) {
 }
 
 export async function getStaticProps() {
-    const res = await fetch("http://localhost:1337/about-pgs")
+    const res = await fetch(process.env.BACKEND_URL + "about-pgs")
     const about = await res.json()
     const resip = await fetch('http://ip-api.com/json/?fields=status,message,country,city,timezone,query')
     const ipItem = await resip.json()

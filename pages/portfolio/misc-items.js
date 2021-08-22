@@ -61,7 +61,7 @@ export async function getStaticProps() {
     // Call an external API endpoint to get posts.
     // You can use any data fetching library
 
-    const resAuto = await fetch('http://localhost:1337/misc-items')
+    const resAuto = await fetch(process.env.BACKEND_URL + 'misc-items')
     const portfolioItem = await resAuto.json()
     const resip = await fetch('http://ip-api.com/json/?fields=status,message,country,city,timezone,query')
     const ipItem = await resip.json()

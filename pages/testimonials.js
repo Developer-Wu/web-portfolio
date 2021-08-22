@@ -25,7 +25,7 @@ function Testimonials(props) {
 export async function getStaticProps() {
     const resip = await fetch('http://ip-api.com/json/?fields=status,message,country,city,timezone,query')
     const ipItem = await resip.json()
-    const tesimonialRes = await fetch('http://localhost:1337/testimonials')
+    const tesimonialRes = await fetch(process.env.BACKEND_URL + 'testimonials')
     const testimonials = await tesimonialRes.json()
     return {
         props:{
