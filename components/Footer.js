@@ -9,7 +9,7 @@ function Footer() {
     return (
         <HStack pl={{base:"30px",md:"60px",lg:"0px"}} pr={{base:"30px",md:"60px",lg:"0px"}} 
         bottom={{base:"20px",sm:"20px", md:"30px",lg:"30px"}}
-        pos="fixed" 
+        pos="relative" 
         align="center" 
         justify="flex-end" 
         spacing="20px" 

@@ -5,6 +5,7 @@ import {
     Box, 
     Circle, 
     Text,
+    Flex,
 VStack, useColorModeValue, useColorMode} from "@chakra-ui/react"
 import { useState } from "react"
 import {HomeContent} from "../components/HomeContent"
@@ -17,9 +18,10 @@ function Layout({children}, props) {
 
     const {colorMode, toggleColorMode}  = useColorMode()
     return (
-        <VStack px={{base:"13px", sm:"20px", md:"20px", lg:"20px"}} justify="center" width="100%" height="100vh" maxH="1200px">
+        <Flex justifyContent="space-between" alignItems="center" flexDir="column" px={{base:"13px", sm:"20px", md:"20px", lg:"20px"}}  justify="center" width="100%" height="100vh" maxH="1200px">
         <Nav/>
         <Box ml="20px" mr="20px"
+        overflowY="hidden"
         zIndex="5"
         whiteSpace="normal"
         pos="relative"
@@ -52,7 +54,7 @@ function Layout({children}, props) {
 
         </Box>
         <Footer/>
-        </VStack>
+        </Flex>
     )
 }
 
