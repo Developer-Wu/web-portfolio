@@ -23,7 +23,7 @@ function HomeContent(props) {
                 </UnorderedList>
                 <Spacer/>
                 <Flex>
-                    <Text>***Want to see what it feels like to be a cool developer?<br/> try navigating the site using the in-built terminal***</Text>
+                    <Text>***Want to see what it feels like to be a cool developer?<br/> try navigating the site using the in-built terminal (Works best on Desktop)***</Text>
                 </Flex>
 
 
