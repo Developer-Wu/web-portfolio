@@ -16,7 +16,7 @@ import {date} from "../../components/Date"
 
 function Portfolio(props) {
     console.log(props.ipItem)
-    console.log(props.automationItem)
+    console.log(props.portfolioItem)
     const [buttonColor, toggleButtonColor] = useState(false)
     const brandColor = useColorModeValue("black","brand.main")
 
@@ -31,7 +31,7 @@ function Portfolio(props) {
 
                 <Spacer />
                 <Grid height="100%" gridGap="20px" width="100%" gridTemplateColumns="repeat(auto-fit, minmax(250px, 1fr))">
-                {props.portfolioItem .length != 0 ? props.portfolioItem.map(item => <PortfolioItem key={item.id} item={item} color={brandColor}/>) : <Text>No projects here yet :), please check back later!</Text>}
+                {props.portfolioItem .length != 0 ? props.portfolioItem.map((item) => <PortfolioItem key={item.id} item={item} color={brandColor}/>) : <Text>No projects here yet :), please check back later!</Text>}
                 
                 
                 </Grid>
@@ -55,6 +55,8 @@ export async function getStaticProps() {
     const portfolioItem = await resWeb.json()
     const resip = await fetch('http://ip-api.com/json/?fields=status,message,country,city,timezone,query')
     const ipItem = await resip.json()
+
+    console.log(resWeb)
 
   
     // By returning { props: { posts } }, the Blog component
