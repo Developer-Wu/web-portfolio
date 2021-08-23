@@ -18,7 +18,7 @@ function Layout({children}, props) {
 
     const {colorMode, toggleColorMode}  = useColorMode()
     return (
-        <Flex height="100vh" justifyContent="space-between" alignItems="center" flexDir="column" px={{base:"13px", sm:"20px", md:"20px", lg:"20px"}}  justify="center" width="100%" height="100vh" maxH="1200px">
+        <Flex height={{base:"100vh", sm:"100vh", md:"100vh", lg:"100vh"}} justifyContent="space-between" alignItems="center" flexDir="column" px={{base:"13px", sm:"20px", md:"20px", lg:"20px"}}  justify="center" width="100%" maxH="1200px">
         <Nav/>
         <Box ml="20px" mr="20px"
         overflowY="hidden"
