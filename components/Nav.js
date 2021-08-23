@@ -41,14 +41,14 @@ function Nav(props) {
     return (
         <>
         
-        <HStack display={{base:"none", sm:"flex", md:"flex", lg:"flex"}} mr={{base:"70px",md:"70px",lg:"0px"}} top="20px" pos="fixed" align="center" justify="flex-end" spacing="20px" width="100%" maxWidth="1250px">
+        <HStack display={{base:"none", sm:"flex", md:"flex", lg:"flex"}} mr={{base:"70px",md:"70px",lg:"0px"}} top="40px" pos="fixed" align="center" justify="flex-end" spacing="20px" width="100%" maxWidth="1250px">
         <Link onClick={(e) => navAway(e, '/')}>home</Link>
         <Link onClick={(e) => navAway(e, '/about')}>about</Link>
         <Link onClick={(e) => navAway(e, '/portfolio')}>portfolio</Link>
         <Link onClick={(e) => navAway(e, '/contact')}>contact</Link>
                 <Link onClick={(e) => navAway(e, '/testimonials')}>testimonials</Link>
         <Link onClick={(e) => navAway(e, '/terminal')}>terminal</Link>
-    <Button onClick={toggleColorMode}><FaMoon/></Button>
+    {/* <Button onClick={toggleColorMode}><FaMoon/></Button> */}
     </HStack>
     <Box display={{base:"block", sm:"none", md:"none", lg:"none"}}>
     <Burger/>
