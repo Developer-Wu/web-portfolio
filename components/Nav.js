@@ -56,7 +56,7 @@ function Nav(props) {
 
     
     
-    <Button display={{base:"flex", sm:"none", md:"none", lg:"none"}} pos="fixed" top="20px" right="30px" onClick={toggleColorMode}><FaMoon/></Button>
+    {/* <Button display={{base:"flex", sm:"none", md:"none", lg:"none"}} pos="fixed" top="20px" right="30px" onClick={toggleColorMode}><FaMoon/></Button> */}
  
     </>
 
