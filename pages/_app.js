@@ -27,7 +27,7 @@ function MyApp({ Component, pageProps }) {
         {routerChanging ? null:<Component {...pageProps} />}
         {routerChanging ? <Loader/>:null}
 
-        <ColorModeScript initialColorMode="light"/>
+        <ColorModeScript initialColorMode="dark"/>
       </Layout>
 
     </ChakraProvider>
