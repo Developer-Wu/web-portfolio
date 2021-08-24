@@ -78,9 +78,9 @@ function Terminal() {
     updateCmd('')
    }
 
-   function helpCmd() {
-    updateOutPut(prevValues => [...prevValues, Help() ])
-   }
+//    function helpCmd() {
+//     updateOutPut(prevValues => [...prevValues, Help() ])
+//    }
 
     function onEnterPressed(event) {
         
@@ -92,7 +92,7 @@ function Terminal() {
                 clearCmd()
             } else if (cmd == "--help"){
                 console.log("hello")
-                helpCmd()
+                updateOutPut(prevValues => [...prevValues, Help() ])
             } else if (cmd == "navTo('/about')") {
                 updateOutPut(prevValues => [...prevValues, redirect('about')])
                 router.push('/about')
@@ -139,7 +139,7 @@ function Terminal() {
 
     return (
 
-        <Box display="flex" flexDir="column" justifyContent="flex-start" alignItems="flex-start"  marginTop="60px" borderBottom="20px" overflowY="auto" width="98%" maxW="1250px" height="100%">
+        <Box px={{base:"10px", sm:"10px", md:"0px", lg:"0px"}} display="flex" flexDir="column" justifyContent="flex-start" alignItems="flex-start" marginTop="60px" borderBottom="20px" overflowY="auto" width="98%" maxW="1250px" height="100%">
         <VStack alignItems="flex-start" width="100%">
         <Box width="100%">
         <TerminalWelcome />
@@ -148,7 +148,7 @@ function Terminal() {
                 <div key={item.key}>{item.value}</div>
             )
         })}
-        <Input placeholder="Type a cmd here..." value={cmd} onKeyPress={onEnterPressed} onChange={onUserInput} maxW="100%" ></Input>
+        <Input mb="20px" placeholder="Type a cmd here..." value={cmd} onKeyPress={onEnterPressed} onChange={onUserInput} maxW="100%" ></Input>
         </Box>
         </VStack>
         </Box>

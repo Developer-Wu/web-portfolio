@@ -6,8 +6,9 @@ import {
     Circle, 
     Text,
     Flex,
+    Spacer,
 VStack, useColorModeValue, useColorMode} from "@chakra-ui/react"
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import {HomeContent} from "../components/HomeContent"
 
 
@@ -17,10 +18,45 @@ import {HomeContent} from "../components/HomeContent"
 function Layout({children}, props) {
 
     const {colorMode, toggleColorMode}  = useColorMode()
+
+    const size = useWindowSize().width;
+
+    // Hook
+function useWindowSize() {
+    // Initialize state with undefined width/height so server and client renders match
+    // Learn more here: https://joshwcomeau.com/react/the-perils-of-rehydration/
+    const [windowSize, setWindowSize] = useState({
+      width: undefined,
+      height: undefined,
+    });
+    useEffect(() => {
+      // Handler to call on window resize
+      function handleResize() {
+        // Set window width/height to state
+        setWindowSize({
+          width: window.innerWidth,
+          height: window.innerHeight,
+        });
+      }
+      // Add event listener
+      window.addEventListener("resize", handleResize);
+      // Call handler right away so state gets updated with initial window size
+      handleResize();
+      // Remove event listener on cleanup
+      return () => window.removeEventListener("resize", handleResize);
+    }, []); // Empty array ensures that effect is only run on mount
+    return windowSize;
+  }
+
+
     return (
-        <Flex height={{base:"100vh", sm:"100vh", md:"100vh", lg:"100vh"}} justifyContent="space-between" alignItems="center" flexDir="column" px={{base:"13px", sm:"20px", md:"20px", lg:"20px"}}  justify="center" width="100%" maxH="1200px">
+        <Flex justifyContent={{base:"flex-start",sm:"center"}} height="100vh">
+        <Flex height={{base:"100vh", sm:"100vh", md:"100vh", lg:"100vh"}} justifyContent="space-around" alignItems="center" flexDir="column" px={{base:"13px", sm:"20px", md:"20px", lg:"20px"}}  justify="center" width="100%" maxW="1250px" maxH="1000px">
         <Nav/>
-        <Box ml="20px" mr="20px"
+        {size <540 ? null :<Spacer/>}
+        {size < 640 ? <Box pt="20px" pb="120px" height="100%">{children}</Box> : null}
+
+        {size >= 640 ? <Box ml="20px" mr="20px"
         overflowY="hidden"
         zIndex="5"
         whiteSpace="normal"
@@ -29,7 +65,7 @@ function Layout({children}, props) {
         border="2px solid gray"
         width="100%" 
         height="80%"
-        maxHeight="1200px"
+        maxHeight="1000px"
         maxWidth="1250px" 
         backgroundImage={colorMode === "light" ? "url('/images/console-bg-light.png')":"url('/images/console-bg-dark.png')"}
         display="flex" 
@@ -52,8 +88,10 @@ function Layout({children}, props) {
             </Box>
             {children}
 
-        </Box>
+        </Box>: null}
+        <Spacer/>
         <Footer/>
+        </Flex>
         </Flex>
     )
 }

@@ -1,5 +1,5 @@
 import { slide as Menu } from 'react-burger-menu'
-import {Button, Link} from "@chakra-ui/react"
+import {Button, Link, Box} from "@chakra-ui/react"
 import { useRouter } from 'next/router'
 import ClientLink from "next/link"
 import {GiHamburgerMenu} from "react-icons/gi"
@@ -27,7 +27,7 @@ function Burger(props) {
 
 
     return (
-        <>
+        <Box borderColor="brand.main" borderBottomWidth="2px" zIndex="999" backgroundColor="#000" width="100%" height="70px" pos="fixed" display={{base:"block", sm:"none", md:"none", lg:"none"}}>
         <Menu isOpen={menuState} onStateChange={isMenuOpen} customBurgerIcon={<GiHamburgerMenu/>} left >
              <Link onClick={(e) => navAway(e, '/')} pl="10px" py="3px" className="menu-item" mb="20px" _hover={{
             backgroundColor:"brand.hover"
@@ -48,7 +48,7 @@ function Burger(props) {
             backgroundColor:"brand.hover"
         }}>terminal</Link>
         </Menu>
-        </>
+        </Box>
     )
 }
 

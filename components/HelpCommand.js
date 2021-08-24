@@ -31,19 +31,19 @@ function Help() {
     return (
         {
             key:uuidv4(),
-            value:<Table size="sm" variant="unstyled" width="auto">
+            value:<Table variant="unstyled">
             <Thead>
-                <Tr>
-                    <Td>Command</Td>
-                    <Td>Description</Td>
+                <Tr >
+                    <Td wordBreak="break-word">Command</Td>
+                    <Td wordBreak="break-word">Description</Td>
                 </Tr>
             </Thead>
             <Tbody>
                 {cmds.map((row) => {
                     return (
                     <Tr key={row.key}>
-                        <Td>{row.command}</Td>
-                        <Td>{row.description}</Td>
+                        <Td wordBreak="break-word">{row.command}</Td>
+                        <Td wordBreak="break-word">{row.description}</Td>
                     </Tr>)
                 })}
             </Tbody>
