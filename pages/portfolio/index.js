@@ -23,7 +23,7 @@ function Portfolio(props) {
     const brandColor = useColorModeValue("black","brand.main")
 
     return (
-        <Box pb={{base:"20px", md:"20px", lg:"20px"}} px={{base:"10px", sm:"10px", md:"0px", lg:"0px"}} display="flex" flexDir="column" justifyContent="flex-start" alignItems="flex-start" marginTop="60px" borderBottom="20px" overflowY="auto" width="98%" maxW="1250px" height="100%">
+        <Box pb={{base:"20px", md:"20px", lg:"20px"}} px={{base:"10px", sm:"10px", md:"0px", lg:"0px"}} display="flex" flexDir="column" justifyContent="flex-start" alignItems="flex-start" marginTop="60px" borderBottom="20px"  overflowY={{base:"", sm:"auto"}} width="98%" maxW="1250px" height="100%">
             <VStack spacing="20px" alignItems="flex-start">
                 <Text>Last login: {date} at public IP {props.ipItem.query} from {props.ipItem.country}</Text>
                 <Spacer />

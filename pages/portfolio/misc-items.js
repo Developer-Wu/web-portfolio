@@ -32,7 +32,7 @@ function MiscItems(props) {
             alignItems="flex-start"
             marginTop="60px"
             borderBottom="20px"
-            overflowY="auto"
+            overflowY={{base:"", sm:"auto"}}
             width="98%"
             maxW="1250px"
             height="100%">

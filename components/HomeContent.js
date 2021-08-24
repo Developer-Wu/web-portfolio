@@ -8,7 +8,7 @@ import {date} from "../components/Date"
 function HomeContent(props) {
 
     return (
-        <Box px={{base:"10px", sm:"10px", md:"0px", lg:"0px"}} display="flex" flexDir="column" justifyContent="flex-start" alignItems="flex-start" marginTop="60px" borderBottom="20px" overflowY="auto" width="98%" maxW="1250px" height="100%">
+        <Box px={{base:"10px", sm:"10px", md:"0px", lg:"0px"}} display="flex" flexDir="column" justifyContent="flex-start" alignItems="flex-start" marginTop="60px" borderBottom="20px"  overflowY={{base:"", sm:"auto"}} width="98%" maxW="1250px" height="100%">
 
                 <Flex minH={{base:"600px", sm:"600px", md:"600px", lg:"600px"}} justifyContent="space-around" flexDir="column" overflowX="clip" width="98%" >
                         <Text>Last login: {date} at IP {props.ipItem.query} from {props.ipItem.country}</Text>

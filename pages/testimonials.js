@@ -6,7 +6,7 @@ import {TestimonialItem} from "../components/TestimonialItem"
 
 function Testimonials(props) {
     return (
-        <Box display="flex" flexDir="column" justifyContent="flex-start" alignItems="flex-start" marginTop="60px" borderBottom="20px" overflowY="auto" width="98%" maxW="1250px" height="100%">
+        <Box display="flex" flexDir="column" justifyContent="flex-start" alignItems="flex-start" marginTop="60px" borderBottom="20px"  overflowY={{base:"", sm:"auto"}} width="98%" maxW="1250px" height="100%">
         <VStack alignItems="flex-start">
         <Text>Last login: {date} at public IP {props.ipItem.query} from {props.ipItem.country}</Text>
         <Spacer/>
