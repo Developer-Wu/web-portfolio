@@ -9,7 +9,7 @@ function Footer() {
     return (
         <HStack pl={{base:"30px",md:"60px",lg:"0px"}} pr={{base:"30px",md:"60px",lg:"0px"}}
         py={{base:"15px"}} 
-        bottom={{base:"20px",sm:"20px", md:"30px",lg:"30px"}}
+
         bottom="0"
         backgroundColor={{base:"#000", sm:"none"}}
         borderColor="brand.main" borderTopWidth={{base:"2px", sm:"0px"}}
