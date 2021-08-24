@@ -50,8 +50,8 @@ function useWindowSize() {
 
 
     return (
-        <Flex justifyContent={{base:"flex-start",sm:"center"}} height="100vh">
-        <Flex height={{base:"100vh", sm:"100vh", md:"100vh", lg:"100vh"}} justifyContent="space-around" alignItems="center" flexDir="column" px={{base:"13px", sm:"20px", md:"20px", lg:"20px"}}  justify="center" width="100%" maxW="1250px" maxH="1000px">
+        <Flex alignItems={{base:"flex-start",sm:"center"}} justifyContent={{base:"flex-start",sm:"center"}} height="100vh">
+        <Flex height={{base:"100vh", sm:"100vh", md:"100vh", lg:"100vh"}} justifyContent="space-around" alignItems="center" flexDir="column" px={{base:"13px", sm:"20px", md:"20px", lg:"20px"}}  justify="center" width="100%" maxW="1250px" maxH={{base:"",sm:"1000px"}}>
         <Nav/>
         {size <540 ? null :<Spacer/>}
         {size < 640 ? <Box pt="20px" pb="120px" height="100%">{children}</Box> : null}
