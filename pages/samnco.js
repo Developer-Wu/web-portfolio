@@ -63,7 +63,7 @@ function SamnCo(props) {
                     lineHeightFactor: 1.5
 
                 })
-                doc.save("hello.pdf")
+                doc.save(`SamnCo-${startDate}-${endDate}.pdf`)
 
                 return
             case "2":
@@ -74,7 +74,7 @@ function SamnCo(props) {
                     lineHeightFactor: 1.5
 
                 })
-                doc.save("hello.pdf")
+                doc.save(`SamnCo-${startDate}-${endDate}.pdf`)
 
                 return
             case "3":
@@ -85,7 +85,7 @@ function SamnCo(props) {
                     lineHeightFactor: 1.5
 
                 })
-                doc.save("hello.pdf")
+                doc.save(`SamnCo-${startDate}-${endDate}.pdf`)
 
                 return
         }
@@ -189,3 +189,6 @@ function SamnCo(props) {
 }
 
 export default SamnCo;
+
+
+
