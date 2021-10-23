@@ -1,18 +1,22 @@
-import {Link, ListItem} from "@chakra-ui/react"
+import { ListItem, Link } from "@chakra-ui/react"
+import Nextlink from "next/link"
 
 function HomeLink(props) {
     return (
-        <Link style = {{textDecoration:"none"}} href={props.link}><ListItem cursor="pointer" 
-                    id="about" 
-                    width="100%" 
-                    bg='none' 
+        <>
+            <Nextlink href={props.link}>
+                <Link style={{ textDecoration: "none" }} ><ListItem cursor="pointer"
+                    id="about"
+                    width="100%"
+                    bg='none'
                     color='brand.main'
-                    fontSize={{base:"1.3em", sm:"1.3em", md:"1.6em", lg:"1.6em"}} 
+                    fontSize={{ base: "1.3em", sm: "1.3em", md: "1.6em", lg: "1.6em" }}
                     _hover={{
-                        bg:'brand.hover',
-                        color:'white'
-                    }}>-&gt; {props.text}</ListItem></Link>
+                        bg: 'brand.hover',
+                        color: 'white'
+                    }}>-&gt; {props.text}</ListItem></Link></Nextlink>
+        </>
     )
 }
 
-export {HomeLink}
+export default HomeLink

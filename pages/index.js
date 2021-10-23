@@ -29,4 +29,5 @@ export async function getStaticProps() {
 
 export default Home
 
+Home.PageLayout = Layout
 

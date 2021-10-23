@@ -12,6 +12,7 @@ import {
 } from "@chakra-ui/react"
 import { PortfolioItem } from "../../components/PortfolioItem"
 import { date } from "../../components/Date"
+import Layout from "../../components/Layout"
 
 function Portfolio(props) {
     console.log(props.ipItem)
@@ -20,7 +21,7 @@ function Portfolio(props) {
 
 
     return (
-        <Box pb={{ base: "20px", md: "20px", lg: "20px" }} px={{ base: "10px", sm: "10px", md: "0px", lg: "0px" }} display="flex" flexDir="column" justifyContent="flex-start" alignItems="flex-start" marginTop="60px"  overflowY={{base:"", sm:"auto"}} borderBottom="20px" width="98%" maxW="1250px" height="100%">
+        <Box pb={{ base: "20px", md: "20px", lg: "20px" }} px={{ base: "10px", sm: "10px", md: "0px", lg: "0px" }} display="flex" flexDir="column" justifyContent="flex-start" alignItems="flex-start" marginTop="60px" overflowY={{ base: "", sm: "auto" }} borderBottom="20px" width="98%" maxW="1250px" height="100%">
             <VStack alignItems="flex-start">
                 <Text>Last login: {date} at public IP {props.ipItem.query} from {props.ipItem.country}</Text>
                 <Spacer />
@@ -61,8 +62,10 @@ export async function getStaticProps() {
             ipItem,
             portfolioItem,
         },
-        revalidate: 10, 
+        revalidate: 10,
     }
 }
 
 export default Portfolio
+
+Portfolio.PageLayout = Layout

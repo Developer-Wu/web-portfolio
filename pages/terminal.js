@@ -1,98 +1,99 @@
-import {Table, Thead, Tr, Td, Tbody, VStack, Box, Input, Textarea} from "@chakra-ui/react"
-import {useState,useEffect, useRef} from "react"
-import {TerminalWelcome} from "../components/TerminalWelcome"
-import {Help} from "../components/HelpCommand"
+import { Table, Thead, Tr, Td, Tbody, VStack, Box, Input, Textarea } from "@chakra-ui/react"
+import { useState, useEffect, useRef } from "react"
+import { TerminalWelcome } from "../components/TerminalWelcome"
+import { Help } from "../components/HelpCommand"
 import { v4 as uuidv4 } from 'uuid';
 import { useRouter } from 'next/router'
-import {useColorMode} from '@chakra-ui/react'
+import { useColorMode } from '@chakra-ui/react'
+import Layout from "../components/Layout";
 
 function Terminal() {
     const router = useRouter();
 
-    const {colorMode,toggleColorMode} = useColorMode()
+    const { colorMode, toggleColorMode } = useColorMode()
 
-    const [cmd, updateCmd ] = useState("")
+    const [cmd, updateCmd] = useState("")
 
     function onUserInput(event) {
         const newInput = event.target.value
         updateCmd(newInput)
     }
-   const command = {
-       key:uuidv4(),
-       value:`> ${cmd}`
-   }
+    const command = {
+        key: uuidv4(),
+        value: `> ${cmd}`
+    }
 
-   function redirect(page) {
-       return (
-           {
-            key:uuidv4(),
-            value:`> redirecting to ${page} page...`
-           }
-       )
-   }
-
-   function colorModeChange() {
-       if (colorMode === "dark") {
-        return(
+    function redirect(page) {
+        return (
             {
-                key:uuidv4(),
-                value:`changing color mode to light mode...`
-               }
+                key: uuidv4(),
+                value: `> redirecting to ${page} page...`
+            }
         )
-       } else {
-        return(
-            {
-                key:uuidv4(),
-                value:`changing color mode to dark mode...`
-               }
-        )
-       }
+    }
 
-       } 
+    function colorModeChange() {
+        if (colorMode === "dark") {
+            return (
+                {
+                    key: uuidv4(),
+                    value: `changing color mode to light mode...`
+                }
+            )
+        } else {
+            return (
+                {
+                    key: uuidv4(),
+                    value: `changing color mode to dark mode...`
+                }
+            )
+        }
+
+    }
 
 
-   const cmdNotFound = {
-       key:uuidv4(),
-       value:`command '${cmd}' not found. Type --help to see all available commands`
-   }
+    const cmdNotFound = {
+        key: uuidv4(),
+        value: `command '${cmd}' not found. Type --help to see all available commands`
+    }
 
-   const sendEmailError = {
-       key:uuidv4(),
-       value:`Please check your sendMail command, you may have made a typo!`
-   }
+    const sendEmailError = {
+        key: uuidv4(),
+        value: `Please check your sendMail command, you may have made a typo!`
+    }
 
-   const mailApiError = {
-       key:uuidv4(),
-       value:'an error occurred with the mail API. Please contact me via Instagram or Whatsapp. Thanks!'
-   }
+    const mailApiError = {
+        key: uuidv4(),
+        value: 'an error occurred with the mail API. Please contact me via Instagram or Whatsapp. Thanks!'
+    }
 
-   const sendSuccess = {
-       key:uuidv4(),
-       value:'Your message has been successfully sent! A confirmation email will be sent soon to you!'
-   }
-   
+    const sendSuccess = {
+        key: uuidv4(),
+        value: 'Your message has been successfully sent! A confirmation email will be sent soon to you!'
+    }
+
     const [cmdOutput, updateOutPut] = useState([])
 
-   function clearCmd() {
-    updateOutPut([])
-    updateCmd('')
-   }
+    function clearCmd() {
+        updateOutPut([])
+        updateCmd('')
+    }
 
-//    function helpCmd() {
-//     updateOutPut(prevValues => [...prevValues, Help() ])
-//    }
+    //    function helpCmd() {
+    //     updateOutPut(prevValues => [...prevValues, Help() ])
+    //    }
 
     function onEnterPressed(event) {
-        
+
         const keyPressed = event.key
         if (keyPressed == "Enter") {
             updateOutPut(prevValues => [...prevValues, command])
             console.log(cmd)
             if (cmd == "clear") {
                 clearCmd()
-            } else if (cmd == "--help"){
+            } else if (cmd == "--help") {
                 console.log("hello")
-                updateOutPut(prevValues => [...prevValues, Help() ])
+                updateOutPut(prevValues => [...prevValues, Help()])
             } else if (cmd == "navTo('/about')") {
                 updateOutPut(prevValues => [...prevValues, redirect('about')])
                 router.push('/about')
@@ -101,14 +102,14 @@ function Terminal() {
                 router.push('/')
             } else if (cmd.includes('sendMail')) {
                 try {
-                    var email = cmd.replace('sendMail',"").replace('(','{').replace(')','}')
+                    var email = cmd.replace('sendMail', "").replace('(', '{').replace(')', '}')
                     var message = JSON.parse(email)
                     console.log(message)
                     fetch('api/contact', {
                         method: 'POST',
-                        headers:{
-                            'Accept':'application/json, text/plain, */*',
-                            'Content-Type':'application/json'
+                        headers: {
+                            'Accept': 'application/json, text/plain, */*',
+                            'Content-Type': 'application/json'
                         },
                         body: JSON.stringify(message)
                     }).then((res) => {
@@ -126,7 +127,7 @@ function Terminal() {
 
 
 
-            } else if (cmd === 'changeColorMode'){
+            } else if (cmd === 'changeColorMode') {
                 toggleColorMode()
                 updateOutPut(prevValues => [...prevValues, colorModeChange()])
             }
@@ -139,20 +140,22 @@ function Terminal() {
 
     return (
 
-        <Box px={{base:"10px", sm:"10px", md:"0px", lg:"0px"}} display="flex" flexDir="column" justifyContent="flex-start" alignItems="flex-start" marginTop="60px" borderBottom="20px"  overflowY={{base:"", sm:"auto"}} width="98%" maxW="1250px" height="100%">
-        <VStack alignItems="flex-start" width="100%">
-        <Box width="100%">
-        <TerminalWelcome />
-        {cmdOutput.map((item) => {
-            return (
-                <div key={item.key}>{item.value}</div>
-            )
-        })}
-        <Input mb="20px" placeholder="Type a cmd here..." value={cmd} onKeyPress={onEnterPressed} onChange={onUserInput} maxW="100%" ></Input>
-        </Box>
-        </VStack>
+        <Box px={{ base: "10px", sm: "10px", md: "0px", lg: "0px" }} display="flex" flexDir="column" justifyContent="flex-start" alignItems="flex-start" marginTop="60px" borderBottom="20px" overflowY={{ base: "", sm: "auto" }} width="98%" maxW="1250px" height="100%">
+            <VStack alignItems="flex-start" width="100%">
+                <Box width="100%">
+                    <TerminalWelcome />
+                    {cmdOutput.map((item) => {
+                        return (
+                            <div key={item.key}>{item.value}</div>
+                        )
+                    })}
+                    <Input mb="20px" placeholder="Type a cmd here..." value={cmd} onKeyPress={onEnterPressed} onChange={onUserInput} maxW="100%" ></Input>
+                </Box>
+            </VStack>
         </Box>
     )
 }
 
 export default Terminal
+
+Terminal.PageLayout = Layout

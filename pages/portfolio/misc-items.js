@@ -15,6 +15,7 @@ import { Divider } from "@chakra-ui/react"
 import { useState } from "react"
 import { PortfolioItem } from "../../components/PortfolioItem"
 import { date } from "../../components/Date"
+import Layout from "../../components/Layout"
 
 function MiscItems(props) {
     console.log(props.ipItem)
@@ -32,7 +33,7 @@ function MiscItems(props) {
             alignItems="flex-start"
             marginTop="60px"
             borderBottom="20px"
-            overflowY={{base:"", sm:"auto"}}
+            overflowY={{ base: "", sm: "auto" }}
             width="98%"
             maxW="1250px"
             height="100%">
@@ -74,8 +75,10 @@ export async function getStaticProps() {
             ipItem,
             portfolioItem,
         },
-        revalidate: 10, 
+        revalidate: 10,
     }
 }
 
 export default MiscItems
+
+MiscItems.PageLayout = Layout

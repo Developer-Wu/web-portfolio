@@ -7,6 +7,7 @@ import { Router } from "next/router"
 import { useState } from "react"
 import { Loader } from "../components/Loading"
 import 'react-datepicker/dist/react-datepicker.css';
+import { AppProps } from "next/app"
 
 
 
@@ -23,32 +24,23 @@ function MyApp({ Component, pageProps }) {
     toggleRouterChange(false)
   })
 
-  switch (Component.name) {
-    case "SamnCo":
-      return (
 
-        <ChakraProvider >
-          {routerChanging ? null : <Component {...pageProps} />}
-          {routerChanging ? <Loader /> : null}
-        </ChakraProvider>
+  return (
 
-      )
 
-    default:
-      return (
-        <ChakraProvider theme={theme}>
-          <Layout>
-            {routerChanging ? null : <Component {...pageProps} />}
-            {routerChanging ? <Loader /> : null}
+    <ChakraProvider theme={theme}>
 
-            <ColorModeScript initialColorMode="dark" />
-          </Layout>
+      {routerChanging ? <Layout><Loader /> </Layout> : Component.PageLayout ?
+        <Component.PageLayout>
+          <Component {...pageProps} />
+        </Component.PageLayout> :
+        <Component {...pageProps} />}
 
-        </ChakraProvider>
 
-      )
-  }
+      <ColorModeScript initialColorMode="dark" />
+    </ChakraProvider>
 
+  )
 
 }
 
