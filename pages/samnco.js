@@ -49,11 +49,13 @@ function SamnCo(props) {
     const [option, setOption] = useState("1")
     const [numMonth, setNumMonths] = useState(3)
 
-    function generatePDF(amount, startDate, endDate, option, numMonth) {
+    function generatePDF(amount, startDate, endDate, numMonth) {
         const doc = new jsPDF();
         var newString = ""
+
         switch (option) {
             case "1":
+                console.log('hello')
                 console.log("1")
                 newString = doc.splitTextToSize(`Dear Landlords of 38 Stanley Street,\n\nI am writing to you today during these trying times for my business to once again seek an extension to our temporary rent reduction arrangement keeping it at HKD ${amount} per month for an additional period of ${numMonth} months starting ${startDate} till ${endDate}. As you’re probably aware by now, COVID-19 crisis has continued to be extremely hard on my business and there has been many challenges from supply all the way to distribution and retail this year for small and big businesses everywhere including mine. It has honestly been one of the most difficult challenges we’ve faced since we opened more than 30 years ago yet we are determined more than ever to persevere and weather this storm. David has been a great support through it all, continually doing all he can to keep my business from folding and your continued generosity will go a long way in helping small businesses like mine survive and continue to prosper.\n\nOnce again, I thank you for your continued generosity throughout this dark chapter in my business.\n\nYours sincerely,\nEdward Wu`, 170)
                 doc.text(newString, 20, 20, {
@@ -77,7 +79,7 @@ function SamnCo(props) {
                 return
             case "3":
                 console.log("3")
-                const ewString = doc.splitTextToSize(`Dear Landlords of 38 Stanley Street, \n\nI am writing to you today during these trying times for my business to once again seek an extension to our temporary rent reduction arrangement keeping it at HKD ${amount} per month for an additional period of ${numMonth} months starting ${startDate} till ${endDate}. As you’re probably aware by now, COVID 19 crisis has continued to bring on many challenges for small and big businesses everywhere.It has honestly been one of the most difficult challenges we’ve faced since I opened more than 30 years ago.David has been a great support through it all, continually doing all he can to keep my business from folding and your continued generosity will go a long way in helping small businesses like mine survive.\n\nOnce again, I thank you for your continued generosity throughout this dark chapter in my business.\n\nYours sincerely, \nEdward Wu`, 170)
+                newString = doc.splitTextToSize(`Dear Landlords of 38 Stanley Street, \n\nI am writing to you today during these trying times for my business to once again seek an extension to our temporary rent reduction arrangement keeping it at HKD ${amount} per month for an additional period of ${numMonth} months starting ${startDate} till ${endDate}. As you’re probably aware by now, COVID 19 crisis has continued to bring on many challenges for small and big businesses everywhere.It has honestly been one of the most difficult challenges we’ve faced since I opened more than 30 years ago.David has been a great support through it all, continually doing all he can to keep my business from folding and your continued generosity will go a long way in helping small businesses like mine survive.\n\nOnce again, I thank you for your continued generosity throughout this dark chapter in my business.\n\nYours sincerely, \nEdward Wu`, 170)
                 doc.text(newString, 20, 20, {
                     align: 'left',
                     lineHeightFactor: 1.5
@@ -95,7 +97,6 @@ function SamnCo(props) {
 
     function handleSubmit(e) {
         e.preventDefault()
-
         const startDay = startDate.getDate() + nth(startDate.getDate())
         const startYear = startDate.getFullYear()
         const startMonth = months[startDate.getMonth()]
@@ -109,7 +110,7 @@ function SamnCo(props) {
 
         const resAmount = String(amount).replace(/(.)(?=( \d{3})+$)/g, '$1,') + ".00"
 
-        generatePDF(resAmount, resStart, resEnd, numMonth, option)
+        generatePDF(resAmount, resStart, resEnd, numMonth)
 
     }
     return (
