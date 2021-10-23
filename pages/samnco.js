@@ -57,8 +57,9 @@ function SamnCo(props) {
             case "1":
                 console.log('hello')
                 console.log("1")
-                newString = doc.splitTextToSize(`Dear Landlords of 38 Stanley Street,\n\nI am writing to you today during these trying times for my business to once again seek an extension to our temporary rent reduction arrangement keeping it at HKD ${amount} per month for an additional period of ${numMonth} months starting ${startDate} till ${endDate}. As you’re probably aware by now, COVID-19 crisis has continued to be extremely hard on my business and there has been many challenges from supply all the way to distribution and retail this year for small and big businesses everywhere including mine. It has honestly been one of the most difficult challenges we’ve faced since we opened more than 30 years ago yet we are determined more than ever to persevere and weather this storm. David has been a great support through it all, continually doing all he can to keep my business from folding and your continued generosity will go a long way in helping small businesses like mine survive and continue to prosper.\n\nOnce again, I thank you for your continued generosity throughout this dark chapter in my business.\n\nYours sincerely,\nEdward Wu`, 170)
-                doc.text(newString, 20, 20, {
+                newString = doc.splitTextToSize(`Dear Landlords of 38 Stanley Street,\n\nI am writing to you today during these trying times for my business to once again seek an extension to our temporary rent reduction arrangement keeping it at HKD ${amount} per month for an additional period of ${numMonth} months starting ${startDate} till ${endDate}. As you’re probably aware by now, COVID-19 crisis has continued to be extremely hard on my business and there has been many challenges from supply all the way to distribution and retail this year for small and big businesses everywhere including mine. It has honestly been one of the most difficult challenges we’ve faced since we opened more than 30 years ago yet we are determined more than ever to persevere and weather this storm. David has been a great support through it all, continually doing all he can to keep my business from folding and your continued generosity will go a long way in helping small businesses like mine survive and continue to prosper.\n\nOnce again, I thank you for your continued generosity throughout this dark chapter in my business.\n\nYours sincerely,\nEdward Wu`, 220)
+                doc.setFontSize(12)
+                doc.text(newString, 20, 90, {
                     align: 'left',
                     lineHeightFactor: 1.5
 
@@ -68,8 +69,9 @@ function SamnCo(props) {
                 return
             case "2":
                 console.log("2")
-                newString = doc.splitTextToSize(`Dear Landlords of 38 Stanley Street,\n\nI am writing to you today during a difficult time for my business to seek an extension to our temporary rent reduction arrangement keeping it at HKD ${amount} per month for an additional period of ${numMonth} months starting ${startDate} to ${endDate}. The global COVID 19 crisis has continued to bring on many unforeseen challenges on my business and your help will come a long way in helping keep my business afloat and alleviate the negative effects COVID 19 continues to have on my business whilst the situation persists.\n\nThank you for your continued support of my business throughout the years and for your consideration.\n\nYours sincerely,\nEdward Wu\nOwner of Sam & Company`, 170)
-                doc.text(newString, 20, 20, {
+                newString = doc.splitTextToSize(`Dear Landlords of 38 Stanley Street,\n\nI am writing to you today during a difficult time for my business to seek an extension to our temporary rent reduction arrangement keeping it at HKD ${amount} per month for an additional period of ${numMonth} months starting ${startDate} to ${endDate}. The global COVID 19 crisis has continued to bring on many unforeseen challenges on my business and your help will come a long way in helping keep my business afloat and alleviate the negative effects COVID 19 continues to have on my business whilst the situation persists.\n\nThank you for your continued support of my business throughout the years and for your consideration.\n\nYours sincerely,\nEdward Wu\nOwner of Sam & Company`, 220)
+                doc.setFontSize(12)
+                doc.text(newString, 20, 90, {
                     align: 'left',
                     lineHeightFactor: 1.5
 
@@ -79,8 +81,9 @@ function SamnCo(props) {
                 return
             case "3":
                 console.log("3")
-                newString = doc.splitTextToSize(`Dear Landlords of 38 Stanley Street, \n\nI am writing to you today during these trying times for my business to once again seek an extension to our temporary rent reduction arrangement keeping it at HKD ${amount} per month for an additional period of ${numMonth} months starting ${startDate} till ${endDate}. As you’re probably aware by now, COVID 19 crisis has continued to bring on many challenges for small and big businesses everywhere.It has honestly been one of the most difficult challenges we’ve faced since I opened more than 30 years ago.David has been a great support through it all, continually doing all he can to keep my business from folding and your continued generosity will go a long way in helping small businesses like mine survive.\n\nOnce again, I thank you for your continued generosity throughout this dark chapter in my business.\n\nYours sincerely, \nEdward Wu`, 170)
-                doc.text(newString, 20, 20, {
+                newString = doc.splitTextToSize(`Dear Landlords of 38 Stanley Street, \n\nI am writing to you today during these trying times for my business to once again seek an extension to our temporary rent reduction arrangement keeping it at HKD ${amount} per month for an additional period of ${numMonth} months starting ${startDate} till ${endDate}. As you’re probably aware by now, COVID 19 crisis has continued to bring on many challenges for small and big businesses everywhere.It has honestly been one of the most difficult challenges we’ve faced since I opened more than 30 years ago.David has been a great support through it all, continually doing all he can to keep my business from folding and your continued generosity will go a long way in helping small businesses like mine survive.\n\nOnce again, I thank you for your continued generosity throughout this dark chapter in my business.\n\nYours sincerely, \nEdward Wu`, 220)
+                doc.setFontSize(12)
+                doc.text(newString, 20, 90, {
                     align: 'left',
                     lineHeightFactor: 1.5
 
