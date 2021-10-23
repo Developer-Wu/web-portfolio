@@ -115,71 +115,71 @@ function SamnCo(props) {
     return (
         <Box mt="100px">
             <form onSubmit={handleSubmit}>
-            <Flex justifyContent="center">
-            <Flex flexDir="column" maxW="700px">
-            <Heading mb="30px" textAlign="center">LETTER GENERATOR</Heading>
-            <FormControl mb="30px" isRequired>
-            <FormLabel>Letter Option</FormLabel>
-            <RadioGroup value={option} onChange={(e) => setOption(e)}>
-            <HStack spacing="20px">
-            <Radio value="1">Option 1</Radio>
-            <Radio value="2">Option 2</Radio>
-            <Radio value="3">Option 3</Radio>
-            </HStack>
-            </RadioGroup>
-            </FormControl>
-            <HStack mb="30px" spacing="30px">
-            <FormControl isRequired>
-            <FormLabel>Start</FormLabel>
-            <DatePicker selected={startDate}
-            peekNextMonth
-            showMonthDropdown
-            showYearDropdown
-            placeholderText="Select Date"
-            dropdownMode="select"
-            onChange={(e) => setStartDate(e)}
-            />
-            </FormControl>
-            <FormControl isRequired>
-            <FormLabel>End</FormLabel>
-            <DatePicker selected={endDate}
-            peekNextMonth
-            showMonthDropdown
-            showYearDropdown
-            placeholderText="Select Date"
-            dropdownMode="select"
-            onChange={(e) => setEndDate(e)}
-            />
-            </FormControl>
-            </HStack>
+                <Flex justifyContent="center">
+                    <Flex flexDir="column" maxW="700px">
+                        <Heading mb="30px" textAlign="center">LETTER GENERATOR</Heading>
+                        <FormControl mb="30px" isRequired>
+                            <FormLabel>Letter Option</FormLabel>
+                            <RadioGroup value={option} onChange={(e) => setOption(e)}>
+                                <HStack spacing="20px">
+                                    <Radio value="1">Option 1</Radio>
+                                    <Radio value="2">Option 2</Radio>
+                                    <Radio value="3">Option 3</Radio>
+                                </HStack>
+                            </RadioGroup>
+                        </FormControl>
+                        <HStack mb="30px" spacing="30px">
+                            <FormControl isRequired>
+                                <FormLabel>Start</FormLabel>
+                                <DatePicker selected={startDate}
+                                    peekNextMonth
+                                    showMonthDropdown
+                                    showYearDropdown
+                                    placeholderText="Select Date"
+                                    dropdownMode="select"
+                                    onChange={(e) => setStartDate(e)}
+                                />
+                            </FormControl>
+                            <FormControl isRequired>
+                                <FormLabel>End</FormLabel>
+                                <DatePicker selected={endDate}
+                                    peekNextMonth
+                                    showMonthDropdown
+                                    showYearDropdown
+                                    placeholderText="Select Date"
+                                    dropdownMode="select"
+                                    onChange={(e) => setEndDate(e)}
+                                />
+                            </FormControl>
+                        </HStack>
 
-            <FormControl mb="30px" isRequired>
-            <FormLabel>Number of Months</FormLabel>
-            <NumberInput onChange={(e) => setNumMonths(e)} defaultValue={numMonth} step={1}>
-            <NumberInputField />
-            <NumberInputStepper>
-            <NumberIncrementStepper />
-            <NumberDecrementStepper />
-            </NumberInputStepper>
-            </NumberInput>
-            </FormControl>
+                        <FormControl mb="30px" isRequired>
+                            <FormLabel>Number of Months</FormLabel>
+                            <NumberInput onChange={(e) => setNumMonths(e)} defaultValue={numMonth} step={1}>
+                                <NumberInputField />
+                                <NumberInputStepper>
+                                    <NumberIncrementStepper />
+                                    <NumberDecrementStepper />
+                                </NumberInputStepper>
+                            </NumberInput>
+                        </FormControl>
 
-            <FormControl mb="30px" isRequired>
-            <FormLabel>Rent Amount in HKD</FormLabel>
-            <NumberInput onChange={(e) => setAmount(e)} defaultValue={amount} precision={2} step={1}>
-            <NumberInputField />
-            <NumberInputStepper>
-            <NumberIncrementStepper />
-            < NumberDecrementStepper />
-            </NumberInputStepper>
-            </NumberInput>
-            </FormControl>
-            <Button type ="submit" value="Submit">
-            GENERATE
-            </ Button>
-            </ Flex>
-            </ Flex>
-            < /form>
+                        <FormControl mb="30px" isRequired>
+                            <FormLabel>Rent Amount in HKD</FormLabel>
+                            <NumberInput onChange={(e) => setAmount(e)} defaultValue={amount} precision={2} step={1}>
+                                <NumberInputField />
+                                <NumberInputStepper>
+                                    <NumberIncrementStepper />
+                                    < NumberDecrementStepper />
+                                </NumberInputStepper>
+                            </NumberInput>
+                        </FormControl>
+                        <Button type="submit" value="Submit">
+                            GENERATE
+                        </Button>
+                    </Flex>
+                </Flex>
+            </form>
 
         </Box>
 
